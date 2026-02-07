@@ -134,4 +134,469 @@
       color:#fff;
       box-shadow: var(--shadow);
       overflow:hidden;
-      p
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width:320px; height:320px;
+      background: rgba(255,255,255,.07);
+      border-radius: 999px;
+      transform: rotate(12deg);
+    }
+    .hero-inner{
+      padding: 44px 28px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items:center;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing:.4px;
+      text-transform: uppercase;
+      opacity:.92;
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(212,175,55,.18);
+    }
+    h1{
+      margin: 14px 0 12px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -.5px;
+    }
+    .sub{
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: rgba(255,255,255,.86);
+      max-width: 60ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .fineprint{
+      margin-top: 14px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+
+    .hero-side{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .hero-side h3{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .pill{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      margin-top: 10px;
+    }
+    .icon{
+      width:34px; height:34px;
+      border-radius: 12px;
+      background: rgba(212,175,55,.18);
+      border: 1px solid rgba(212,175,55,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      font-weight: 900;
+      color: rgba(255,255,255,.92);
+    }
+    .pill b{ display:block; margin-bottom:2px; }
+    .pill span{ color: rgba(255,255,255,.78); font-size: 13px; }
+
+    /* Sections */
+    section{ padding: 34px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin: 10px 0 18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.3px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 56ch;
+      font-size: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      padding: 18px;
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .service{
+      grid-column: span 4;
+      padding: 20px;
+    }
+    .service .mini{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-weight: 850;
+    }
+    .mini .sq{
+      width:30px; height:30px;
+      border-radius: 10px;
+      background: rgba(11,37,64,.08);
+      border: 1px solid rgba(11,37,64,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+    }
+
+    .highlight{
+      grid-column: span 12;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:stretch;
+      background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(255,255,255,.8));
+      border: 1px solid rgba(212,175,55,.25);
+      overflow:hidden;
+      position:relative;
+    }
+    .highlight:after{
+      content:"";
+      position:absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.18);
+      right:-120px;
+      top:-160px;
+      filter: blur(2px);
+    }
+    .hl-left{ padding: 22px; position:relative; z-index:1; }
+    .hl-left h2{ margin:0 0 8px; font-size: 22px; letter-spacing: -.3px; }
+    .hl-left p{ margin:0; color: var(--muted); font-size: 14px; max-width: 70ch; }
+
+    .hl-right{
+      padding: 18px;
+      position:relative;
+      z-index:1;
+      display:grid;
+      gap: 10px;
+    }
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid var(--line);
+    }
+    .check .tick{
+      width:26px; height:26px;
+      border-radius: 9px;
+      background: rgba(212,175,55,.18);
+      border: 1px solid rgba(212,175,55,.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      color: var(--navy);
+      flex: 0 0 auto;
+    }
+    .check b{ display:block; font-size: 14px; margin-bottom: 2px; }
+    .check span{ color: var(--muted); font-size: 13px; }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .contact .card{ padding: 22px; }
+    .contact h2{ margin:0 0 8px; font-size: 22px; letter-spacing: -.3px; }
+    .contact p{ margin:0 0 12px; color: var(--muted); font-size: 14px; }
+    .contact .info{
+      display:grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .info-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(15,23,42,.04);
+      border: 1px solid var(--line);
+    }
+    .info-row .k{
+      width:32px; height:32px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(11,37,64,.08);
+      border: 1px solid rgba(11,37,64,.12);
+      font-weight: 900;
+      color: var(--navy);
+      flex: 0 0 auto;
+    }
+    .info-row b{ display:block; font-size: 14px; margin-bottom:2px; }
+    .info-row span{ color: var(--muted); font-size: 13px; }
+
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      padding: 24px 0 34px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .service{ grid-column: span 12; }
+      .highlight{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand">
+          <span class="badge" aria-hidden="true"></span>
+          <span>Insurance for Georgia Dentists</span>
+        </div>
+
+        <div class="nav-cta">
+          <div class="nav" aria-label="Primary">
+            <a href="#services">Coverage</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a class="btn btn-primary" href="#contact">Get a Personalized Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <div class="hero">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <div class="kicker"><span class="dot"></span> Independent broker • Georgia</div>
+            <h1>Smart home, auto, and umbrella protection—built for dentist households.</h1>
+            <p class="sub">
+              Clear, apples-to-apples comparisons and strategy-first guidance. Built for professionals who want
+              efficient decisions, strong coverage, and less noise.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get a Personalized Review</a>
+              <a class="btn btn-ghost" href="#services">See what we optimize</a>
+            </div>
+
+            <div class="fineprint">
+              Typical starting point: a quick review of your current declarations page + renewal date.
+            </div>
+          </div>
+
+          <aside class="hero-side" aria-label="Quick benefits">
+            <h3>What you get</h3>
+
+            <div class="pill">
+              <div class="icon">⎈</div>
+              <div>
+                <b>Clean comparisons</b>
+                <span>We match coverage first, then recommend upgrades separately.</span>
+              </div>
+            </div>
+
+            <div class="pill">
+              <div class="icon">☂</div>
+              <div>
+                <b>Umbrella strategy</b>
+                <span>Higher exposure needs a smarter liability ceiling.</span>
+              </div>
+            </div>
+
+            <div class="pill">
+              <div class="icon">⏱</div>
+              <div>
+                <b>Fast + organized</b>
+                <span>Simple intake, fewer follow-ups, cleaner bind process.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="section-head">
+        <div>
+          <h2>Coverage we optimize</h2>
+          <p>Personal lines focused: home, auto, and umbrella—structured for long-term clarity.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card service">
+          <div class="mini"><span class="sq">🏠</span> Home Insurance That Actually Fits</div>
+          <p>Focus on rebuild accuracy, extended dwelling, ordinance & law, and meaningful liability—not guesswork.</p>
+        </div>
+
+        <div class="card service">
+          <div class="mini"><span class="sq">🚗</span> Auto Insurance for Busy Schedules</div>
+          <p>Clean portfolios across multiple vehicles and drivers, with cost-control strategies that don’t wreck coverage.</p>
+        </div>
+
+        <div class="card service">
+          <div class="mini"><span class="sq">🛡</span> Strategic Umbrella Protection</div>
+          <p>An umbrella is often the most cost-effective way to raise your liability ceiling and reduce disruption risk.</p>
+        </div>
+
+        <div class="card highlight" id="why">
+          <div class="hl-left">
+            <h2>Why dentists choose this approach</h2>
+            <p>
+              Dentists tend to be efficient decision-makers—busy schedules, higher exposure, and valuable assets.
+              Our process is designed to be clean, structured, and easy to approve.
+            </p>
+          </div>
+          <div class="hl-right">
+            <div class="check">
+              <div class="tick">✓</div>
+              <div>
+                <b>Independent broker access</b>
+                <span>Multiple carriers means options—not one-company limitations.</span>
+              </div>
+            </div>
+            <div class="check">
+              <div class="tick">✓</div>
+              <div>
+                <b>Apples-to-apples first</b>
+                <span>Coverage match for comparison, then strategy recommendations.</span>
+              </div>
+            </div>
+            <div class="check">
+              <div class="tick">✓</div>
+              <div>
+                <b>Less jargon, more clarity</b>
+                <span>Short explanations you can trust, without the runaround.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div class="card">
+          <h2>Start with a simple conversation</h2>
+          <p>
+            If you’re a Georgia dentist and want clarity around your home, auto, or umbrella coverage,
+            start with a short discovery conversation. No pressure—just intelligent guidance.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:brent@insurancepm.com?subject=Georgia%20Dentist%20Insurance%20Review">Email Brent</a>
+            <a class="btn btn-ghost" href="#services">Review coverage areas</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Contact</h2>
+          <p>Reply with your renewal date and a copy of your current declarations page to get started.</p>
+
+          <div class="info">
+            <div class="info-row">
+              <div class="k">✉</div>
+              <div>
+                <b>Email</b>
+                <span>brent@insurancepm.com</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="k">📍</div>
+              <div>
+                <b>Service area</b>
+                <span>Georgia (dentist households statewide)</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="k">🧾</div>
+              <div>
+                <b>Fastest start</b>
+                <span>Send dec page + renewal date for apples-to-apples review</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      InsurancePM – The Brooks Legacy Team • Independent Broker (GA)<br/>
+      This page is informational and does not change or replace policy language.
+    </footer>
+
+  </main>
+
+</body>
+</html>
