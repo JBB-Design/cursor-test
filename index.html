@@ -4,248 +4,283 @@
   <meta charset="UTF-8" />
   <title>Insurance for Georgia Dentists | Home, Auto, Umbrella</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Independent insurance broker helping Georgia dentists build smarter home, auto, and umbrella protection with clear comparisons and long-term strategy." />
+  <meta name="description" content="Independent insurance broker helping Georgia dentists structure smarter home, auto, and umbrella protection with clear comparisons and long-term strategy." />
 
   <style>
     :root{
-      --navy:#0b2540;
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #0b1220;
+      --muted: #52606d;
+
+      --navy: #0b2540;
       --navy2:#12385c;
-      --ink:#0f172a;
-      --muted:#475569;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --line:rgba(15,23,42,.10);
-      --gold:#d4af37;
+
+      --gold: #d4af37;
       --gold2:#b89223;
-      --shadow: 0 18px 50px rgba(2,6,23,.10);
-      --radius:18px;
+
+      --line: rgba(11,18,32,.10);
+      --shadow-sm: 0 8px 18px rgba(11,18,32,.08);
+      --shadow: 0 18px 45px rgba(11,18,32,.12);
+
+      --r-sm: 14px;
+      --r: 22px;
       --max: 1120px;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
-      color:var(--ink);
-      background: radial-gradient(900px 500px at 20% 0%, rgba(212,175,55,.10), transparent 60%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(59,130,246,.10), transparent 60%),
-                  var(--bg);
-      line-height:1.6;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(212,175,55,.10), transparent 65%),
+        radial-gradient(900px 420px at 80% 10%, rgba(18,56,92,.10), transparent 65%),
+        var(--bg);
+      line-height: 1.55;
     }
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ width:100%; max-width:var(--max); margin:0 auto; padding:0 20px; }
-
-    /* Top bar */
+    /* Top nav */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 50;
+      background: rgba(247,248,251,.82);
       backdrop-filter: blur(10px);
-      background: rgba(246,248,251,.75);
       border-bottom: 1px solid var(--line);
     }
     .topbar .inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap: 14px;
       padding: 14px 0;
     }
+
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      font-weight: 750;
-      letter-spacing: .2px;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.2px;
     }
-    .badge{
-      width:34px; height:34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      box-shadow: 0 10px 25px rgba(11,37,64,.25);
-      position:relative;
+    .logo{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(11,37,64,.92), rgba(18,56,92,.92));
+      box-shadow: 0 12px 24px rgba(11,37,64,.18);
+      position: relative;
+      overflow:hidden;
     }
-    .badge:after{
+    .logo:after{
       content:"";
       position:absolute;
-      inset:9px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgba(212,175,55,.9), rgba(212,175,55,.35));
+      inset: 10px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(212,175,55,.92), rgba(212,175,55,.30));
+      transform: rotate(8deg);
     }
 
     .nav{
       display:flex;
       align-items:center;
-      gap:18px;
-      color: var(--muted);
+      gap: 18px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
+      color: var(--muted);
     }
-    .nav a{ padding: 8px 10px; border-radius: 10px; }
-    .nav a:hover{ background: rgba(15,23,42,.06); color: var(--ink); }
-
-    .nav-cta{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .nav a:hover{
+      background: rgba(11,18,32,.05);
+      color: var(--ink);
     }
 
-    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
       padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 750;
+      border-radius: 14px;
+      font-weight: 800;
       border: 1px solid transparent;
-      cursor:pointer;
+      cursor: pointer;
       transition: transform .08s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      white-space: nowrap;
       user-select:none;
-      white-space:nowrap;
     }
     .btn:active{ transform: translateY(1px); }
     .btn-primary{
       background: linear-gradient(135deg, var(--gold), var(--gold2));
       color: #0b2540;
-      box-shadow: 0 14px 30px rgba(212,175,55,.25);
+      box-shadow: 0 14px 24px rgba(212,175,55,.22);
     }
-    .btn-primary:hover{ box-shadow: 0 16px 36px rgba(212,175,55,.32); }
-    .btn-ghost{
-      background: rgba(255,255,255,.7);
+    .btn-primary:hover{ box-shadow: 0 16px 30px rgba(212,175,55,.28); }
+    .btn-soft{
+      background: rgba(255,255,255,.75);
       border-color: var(--line);
       color: var(--ink);
     }
-    .btn-ghost:hover{ background: #fff; }
+    .btn-soft:hover{ background: #fff; }
 
     /* Hero */
     .hero{
-      padding: 56px 0 28px;
+      padding: 28px 0 10px;
     }
-    .hero-card{
-      border-radius: calc(var(--radius) + 8px);
-      background:
-        radial-gradient(900px 400px at 20% 0%, rgba(212,175,55,.22), transparent 60%),
-        radial-gradient(900px 450px at 85% 20%, rgba(59,130,246,.22), transparent 60%),
-        linear-gradient(135deg, var(--navy), var(--navy2));
-      color:#fff;
+    .hero-slab{
+      background: linear-gradient(180deg, #ffffff, rgba(255,255,255,.85));
+      border: 1px solid rgba(11,18,32,.08);
+      border-radius: 28px;
       box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
+      overflow: hidden;
+      position: relative;
     }
-    .hero-card:before{
+    .hero-slab:before{
       content:"";
       position:absolute;
-      inset:-120px -120px auto auto;
-      width:320px; height:320px;
-      background: rgba(255,255,255,.07);
+      inset:-160px -220px auto auto;
+      width: 520px; height: 520px;
       border-radius: 999px;
-      transform: rotate(12deg);
+      background: radial-gradient(circle at 30% 30%, rgba(18,56,92,.18), transparent 55%),
+                  radial-gradient(circle at 65% 55%, rgba(212,175,55,.18), transparent 55%);
+      filter: blur(2px);
     }
     .hero-inner{
-      padding: 44px 28px;
+      padding: 44px 36px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 24px;
-      align-items:center;
+      gap: 22px;
+      align-items: center;
+      position:relative;
+      z-index: 1;
     }
+
     .kicker{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing:.4px;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .5px;
       text-transform: uppercase;
-      opacity:.92;
+      color: rgba(11,37,64,.80);
     }
-    .dot{
-      width:10px; height:10px;
+    .kdot{
+      width: 10px; height: 10px;
       border-radius: 999px;
       background: var(--gold);
-      box-shadow: 0 0 0 6px rgba(212,175,55,.18);
-    }
-    h1{
-      margin: 14px 0 12px;
-      font-size: clamp(28px, 3.2vw, 44px);
-      line-height: 1.12;
-      letter-spacing: -.5px;
-    }
-    .sub{
-      margin: 0 0 18px;
-      font-size: 16px;
-      color: rgba(255,255,255,.86);
-      max-width: 60ch;
-    }
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 16px;
-    }
-    .fineprint{
-      margin-top: 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 13px;
+      box-shadow: 0 0 0 6px rgba(212,175,55,.16);
     }
 
-    .hero-side{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 18px;
+    h1{
+      margin: 14px 0 12px;
+      font-size: clamp(30px, 3.4vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -1px;
+      color: var(--navy);
     }
-    .hero-side h3{
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 16px;
+    }
+    .actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .micro{
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(82,96,109,.95);
+    }
+
+    /* “What you get” panel */
+    .panel{
+      background: linear-gradient(180deg, rgba(11,37,64,.88), rgba(18,56,92,.88));
+      color: #fff;
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 16px 36px rgba(11,37,64,.22);
+    }
+    .panel h3{
       margin: 0 0 10px;
       font-size: 16px;
       letter-spacing: -.2px;
     }
     .pill{
       display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.06);
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.10);
-      margin-top: 10px;
+      margin-top: 12px;
+      align-items:flex-start;
     }
-    .icon{
-      width:34px; height:34px;
-      border-radius: 12px;
-      background: rgba(212,175,55,.18);
-      border: 1px solid rgba(212,175,55,.35);
+    .ico{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      background: rgba(212,175,55,.22);
+      border: 1px solid rgba(212,175,55,.38);
       display:flex;
       align-items:center;
       justify-content:center;
       flex: 0 0 auto;
       font-weight: 900;
-      color: rgba(255,255,255,.92);
     }
-    .pill b{ display:block; margin-bottom:2px; }
-    .pill span{ color: rgba(255,255,255,.78); font-size: 13px; }
+    .pill b{ display:block; margin-bottom: 2px; }
+    .pill span{ font-size: 13px; color: rgba(255,255,255,.78); }
+
+    /* Trust band */
+    .trust{
+      margin: 22px 0 8px;
+      border: 1px solid rgba(11,18,32,.08);
+      background: rgba(255,255,255,.70);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .trust .item{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .trust .dot{
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: rgba(18,56,92,.40);
+    }
 
     /* Sections */
     section{ padding: 34px 0; }
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:16px;
-      margin: 10px 0 18px;
+    .head{
+      margin-bottom: 14px;
     }
-    .section-head h2{
-      margin:0;
+    .head h2{
+      margin: 0 0 6px;
       font-size: 22px;
-      letter-spacing: -.3px;
+      letter-spacing: -.4px;
+      color: var(--navy);
     }
-    .section-head p{
-      margin:0;
+    .head p{
+      margin: 0;
       color: var(--muted);
-      max-width: 56ch;
+      max-width: 70ch;
       font-size: 14px;
     }
 
@@ -255,92 +290,98 @@
       gap: 16px;
     }
     .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      grid-column: span 4;
+      background: var(--paper);
+      border: 1px solid rgba(11,18,32,.08);
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
       padding: 18px;
+      transition: transform .12s ease, box-shadow .18s ease;
     }
-    .card h3{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing: -.2px;
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(11,18,32,.12);
+    }
+    .card .top{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 850;
+      color: var(--navy);
+    }
+    .badge-ico{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      background: rgba(11,37,64,.06);
+      border: 1px solid rgba(11,37,64,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
     }
     .card p{
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
-    .service{
-      grid-column: span 4;
-      padding: 20px;
-    }
-    .service .mini{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom: 8px;
-      color: var(--navy);
-      font-weight: 850;
-    }
-    .mini .sq{
-      width:30px; height:30px;
-      border-radius: 10px;
-      background: rgba(11,37,64,.08);
-      border: 1px solid rgba(11,37,64,.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-    }
 
-    .highlight{
+    /* Feature slab */
+    .feature{
       grid-column: span 12;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(212,175,55,.10), rgba(255,255,255,.95));
+      border: 1px solid rgba(212,175,55,.24);
+      padding: 22px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 16px;
-      align-items:stretch;
-      background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(255,255,255,.8));
-      border: 1px solid rgba(212,175,55,.25);
+      align-items: start;
+      position: relative;
       overflow:hidden;
-      position:relative;
     }
-    .highlight:after{
+    .feature:after{
       content:"";
       position:absolute;
-      width: 320px;
-      height: 320px;
+      right:-160px;
+      top:-210px;
+      width: 520px;
+      height: 520px;
       border-radius: 999px;
-      background: rgba(212,175,55,.18);
-      right:-120px;
-      top:-160px;
-      filter: blur(2px);
+      background: radial-gradient(circle at 35% 35%, rgba(212,175,55,.26), transparent 60%);
     }
-    .hl-left{ padding: 22px; position:relative; z-index:1; }
-    .hl-left h2{ margin:0 0 8px; font-size: 22px; letter-spacing: -.3px; }
-    .hl-left p{ margin:0; color: var(--muted); font-size: 14px; max-width: 70ch; }
-
-    .hl-right{
-      padding: 18px;
-      position:relative;
-      z-index:1;
+    .feature .left{ position:relative; z-index:1; }
+    .feature .left h3{
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -.4px;
+      color: var(--navy);
+    }
+    .feature .left p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 72ch;
+    }
+    .feature .right{
+      position:relative; z-index:1;
       display:grid;
       gap: 10px;
     }
     .check{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(11,18,32,.08);
+      border-radius: 16px;
       padding: 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.85);
-      border: 1px solid var(--line);
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
     }
-    .check .tick{
-      width:26px; height:26px;
-      border-radius: 9px;
+    .tick{
+      width: 26px; height: 26px;
+      border-radius: 10px;
       background: rgba(212,175,55,.18);
-      border: 1px solid rgba(212,175,55,.35);
+      border: 1px solid rgba(212,175,55,.32);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -348,63 +389,80 @@
       color: var(--navy);
       flex: 0 0 auto;
     }
-    .check b{ display:block; font-size: 14px; margin-bottom: 2px; }
-    .check span{ color: var(--muted); font-size: 13px; }
+    .check b{ display:block; margin-bottom: 2px; font-size: 14px; }
+    .check span{ display:block; color: var(--muted); font-size: 13px; }
 
-    /* Contact */
-    .contact{
+    /* FAQ + Contact */
+    .two{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .contact .card{ padding: 22px; }
-    .contact h2{ margin:0 0 8px; font-size: 22px; letter-spacing: -.3px; }
-    .contact p{ margin:0 0 12px; color: var(--muted); font-size: 14px; }
-    .contact .info{
+    .box{
+      background: var(--paper);
+      border: 1px solid rgba(11,18,32,.08);
+      border-radius: 22px;
+      box-shadow: var(--shadow-sm);
+      padding: 20px;
+    }
+    .box h2{
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -.4px;
+      color: var(--navy);
+    }
+    .box p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .qa{
+      border-top: 1px solid rgba(11,18,32,.08);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .qa b{ display:block; margin-bottom: 4px; }
+    .info{
       display:grid;
       gap: 10px;
-      margin-top: 8px;
+      margin-top: 10px;
     }
-    .info-row{
+    .row{
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:flex-start;
       padding: 12px;
-      border-radius: 14px;
-      background: rgba(15,23,42,.04);
-      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(11,18,32,.04);
+      border: 1px solid rgba(11,18,32,.08);
     }
-    .info-row .k{
-      width:32px; height:32px;
-      border-radius: 12px;
+    .k{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      background: rgba(11,37,64,.06);
+      border: 1px solid rgba(11,37,64,.10);
       display:flex;
       align-items:center;
       justify-content:center;
-      background: rgba(11,37,64,.08);
-      border: 1px solid rgba(11,37,64,.12);
       font-weight: 900;
       color: var(--navy);
       flex: 0 0 auto;
     }
-    .info-row b{ display:block; font-size: 14px; margin-bottom:2px; }
-    .info-row span{ color: var(--muted); font-size: 13px; }
+    .row span{ color: var(--muted); font-size: 13px; display:block; }
 
-    /* Footer */
     footer{
-      margin-top: 26px;
-      padding: 24px 0 34px;
+      padding: 26px 0 40px;
+      text-align:center;
       color: var(--muted);
       font-size: 13px;
-      text-align:center;
     }
 
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero-inner{ grid-template-columns: 1fr; }
-      .service{ grid-column: span 12; }
-      .highlight{ grid-template-columns: 1fr; }
-      .contact{ grid-template-columns: 1fr; }
+    @media (max-width: 960px){
+      .hero-inner{ grid-template-columns: 1fr; padding: 34px 20px; }
       .nav{ display:none; }
+      .card{ grid-column: span 12; }
+      .feature{ grid-template-columns: 1fr; }
+      .two{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -415,16 +473,16 @@
     <div class="wrap">
       <div class="inner">
         <div class="brand">
-          <span class="badge" aria-hidden="true"></span>
-          <span>Insurance for Georgia Dentists</span>
+          <div class="logo" aria-hidden="true"></div>
+          <div>Insurance for Georgia Dentists</div>
         </div>
 
-        <div class="nav-cta">
-          <div class="nav" aria-label="Primary">
-            <a href="#services">Coverage</a>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <nav class="nav" aria-label="Primary">
+            <a href="#coverage">Coverage</a>
             <a href="#why">Why Us</a>
             <a href="#contact">Contact</a>
-          </div>
+          </nav>
           <a class="btn btn-primary" href="#contact">Get a Personalized Review</a>
         </div>
       </div>
@@ -433,32 +491,39 @@
 
   <main class="wrap">
 
-    <div class="hero">
-      <div class="hero-card">
+    <section class="hero">
+      <div class="hero-slab">
         <div class="hero-inner">
           <div>
-            <div class="kicker"><span class="dot"></span> Independent broker • Georgia</div>
+            <div class="kicker"><span class="kdot"></span> Independent broker • Georgia</div>
             <h1>Smart home, auto, and umbrella protection—built for dentist households.</h1>
             <p class="sub">
               Clear, apples-to-apples comparisons and strategy-first guidance. Built for professionals who want
               efficient decisions, strong coverage, and less noise.
             </p>
 
-            <div class="hero-actions">
+            <div class="actions">
               <a class="btn btn-primary" href="#contact">Get a Personalized Review</a>
-              <a class="btn btn-ghost" href="#services">See what we optimize</a>
+              <a class="btn btn-soft" href="#coverage">See what we optimize</a>
             </div>
 
-            <div class="fineprint">
+            <div class="micro">
               Typical starting point: a quick review of your current declarations page + renewal date.
+            </div>
+
+            <div class="trust" aria-label="Trust signals">
+              <div class="item"><span class="dot"></span> Apples-to-apples comparisons</div>
+              <div class="item"><span class="dot"></span> Dentist exposure-focused</div>
+              <div class="item"><span class="dot"></span> Fast, organized intake</div>
+              <div class="item"><span class="dot"></span> Umbrella strategy</div>
             </div>
           </div>
 
-          <aside class="hero-side" aria-label="Quick benefits">
+          <aside class="panel" aria-label="What you get">
             <h3>What you get</h3>
 
             <div class="pill">
-              <div class="icon">⎈</div>
+              <div class="ico">≋</div>
               <div>
                 <b>Clean comparisons</b>
                 <span>We match coverage first, then recommend upgrades separately.</span>
@@ -466,7 +531,7 @@
             </div>
 
             <div class="pill">
-              <div class="icon">☂</div>
+              <div class="ico">☂</div>
               <div>
                 <b>Umbrella strategy</b>
                 <span>Higher exposure needs a smarter liability ceiling.</span>
@@ -474,7 +539,7 @@
             </div>
 
             <div class="pill">
-              <div class="icon">⏱</div>
+              <div class="ico">⏱</div>
               <div>
                 <b>Fast + organized</b>
                 <span>Simple intake, fewer follow-ups, cleaner bind process.</span>
@@ -483,61 +548,50 @@
           </aside>
         </div>
       </div>
-    </div>
+    </section>
 
-    <section id="services">
-      <div class="section-head">
-        <div>
-          <h2>Coverage we optimize</h2>
-          <p>Personal lines focused: home, auto, and umbrella—structured for long-term clarity.</p>
-        </div>
+    <section id="coverage">
+      <div class="head">
+        <h2>Coverage we optimize</h2>
+        <p>Personal lines focused: home, auto, and umbrella—structured for long-term clarity.</p>
       </div>
 
       <div class="grid">
-        <div class="card service">
-          <div class="mini"><span class="sq">🏠</span> Home Insurance That Actually Fits</div>
+        <div class="card">
+          <div class="top"><div class="badge-ico">🏠</div>Home Insurance That Actually Fits</div>
           <p>Focus on rebuild accuracy, extended dwelling, ordinance & law, and meaningful liability—not guesswork.</p>
         </div>
 
-        <div class="card service">
-          <div class="mini"><span class="sq">🚗</span> Auto Insurance for Busy Schedules</div>
+        <div class="card">
+          <div class="top"><div class="badge-ico">🚗</div>Auto Insurance for Busy Schedules</div>
           <p>Clean portfolios across multiple vehicles and drivers, with cost-control strategies that don’t wreck coverage.</p>
         </div>
 
-        <div class="card service">
-          <div class="mini"><span class="sq">🛡</span> Strategic Umbrella Protection</div>
+        <div class="card">
+          <div class="top"><div class="badge-ico">🛡</div>Strategic Umbrella Protection</div>
           <p>An umbrella is often the most cost-effective way to raise your liability ceiling and reduce disruption risk.</p>
         </div>
 
-        <div class="card highlight" id="why">
-          <div class="hl-left">
-            <h2>Why dentists choose this approach</h2>
+        <div class="feature" id="why">
+          <div class="left">
+            <h3>Why dentists choose this approach</h3>
             <p>
               Dentists tend to be efficient decision-makers—busy schedules, higher exposure, and valuable assets.
               Our process is designed to be clean, structured, and easy to approve.
             </p>
           </div>
-          <div class="hl-right">
+          <div class="right">
             <div class="check">
               <div class="tick">✓</div>
-              <div>
-                <b>Independent broker access</b>
-                <span>Multiple carriers means options—not one-company limitations.</span>
-              </div>
+              <div><b>Independent broker access</b><span>Multiple carriers means options—not one-company limitations.</span></div>
             </div>
             <div class="check">
               <div class="tick">✓</div>
-              <div>
-                <b>Apples-to-apples first</b>
-                <span>Coverage match for comparison, then strategy recommendations.</span>
-              </div>
+              <div><b>Apples-to-apples first</b><span>Coverage match for comparison, then strategy recommendations.</span></div>
             </div>
             <div class="check">
               <div class="tick">✓</div>
-              <div>
-                <b>Less jargon, more clarity</b>
-                <span>Short explanations you can trust, without the runaround.</span>
-              </div>
+              <div><b>Less jargon, more clarity</b><span>Short explanations you can trust, without the runaround.</span></div>
             </div>
           </div>
         </div>
@@ -546,39 +600,57 @@
     </section>
 
     <section id="contact">
-      <div class="contact">
-        <div class="card">
+      <div class="two">
+        <div class="box">
+          <h2>Quick FAQ</h2>
+          <p>These are the questions most dentist households ask before switching.</p>
+
+          <div class="qa">
+            <b>What do you need from me to start?</b>
+            <span class="muted">Your current declarations page and renewal date.</span>
+          </div>
+
+          <div class="qa">
+            <b>Do you only shop price?</b>
+            <span class="muted">No—coverage match first, then we optimize price and structure.</span>
+          </div>
+
+          <div class="qa">
+            <b>Is an umbrella really worth it?</b>
+            <span class="muted">Often yes—higher assets and exposure usually justify it quickly.</span>
+          </div>
+        </div>
+
+        <div class="box">
           <h2>Start with a simple conversation</h2>
           <p>
             If you’re a Georgia dentist and want clarity around your home, auto, or umbrella coverage,
             start with a short discovery conversation. No pressure—just intelligent guidance.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:brent@insurancepm.com?subject=Georgia%20Dentist%20Insurance%20Review">Email Brent</a>
-            <a class="btn btn-ghost" href="#services">Review coverage areas</a>
-          </div>
-        </div>
 
-        <div class="card">
-          <h2>Contact</h2>
-          <p>Reply with your renewal date and a copy of your current declarations page to get started.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:brent@insurancepm.com?subject=Georgia%20Dentist%20Insurance%20Review">Email Brent</a>
+            <a class="btn btn-soft" href="#coverage">Review coverage areas</a>
+          </div>
 
           <div class="info">
-            <div class="info-row">
+            <div class="row">
               <div class="k">✉</div>
               <div>
                 <b>Email</b>
                 <span>brent@insurancepm.com</span>
               </div>
             </div>
-            <div class="info-row">
+
+            <div class="row">
               <div class="k">📍</div>
               <div>
                 <b>Service area</b>
                 <span>Georgia (dentist households statewide)</span>
               </div>
             </div>
-            <div class="info-row">
+
+            <div class="row">
               <div class="k">🧾</div>
               <div>
                 <b>Fastest start</b>
@@ -592,7 +664,7 @@
     </section>
 
     <footer>
-      InsurancePM – The Brooks Legacy Team • Independent Broker (GA)<br/>
+      InsurancePM – The Brooks Legacy Team • Independent Broker (GA)<br />
       This page is informational and does not change or replace policy language.
     </footer>
 
