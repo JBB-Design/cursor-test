@@ -64,7 +64,7 @@
       display:flex;
       align-items:center;
       gap: 10px;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: -.2px;
     }
     .logo{
@@ -107,7 +107,7 @@
       justify-content:center;
       padding: 12px 16px;
       border-radius: 14px;
-      font-weight: 800;
+      font-weight: 850;
       border: 1px solid transparent;
       cursor: pointer;
       transition: transform .08s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
@@ -129,11 +129,10 @@
     .btn-soft:hover{ background: #fff; }
 
     /* Hero */
-    .hero{
-      padding: 28px 0 10px;
-    }
+    .hero{ padding: 28px 0 10px; }
+
     .hero-slab{
-      background: linear-gradient(180deg, #ffffff, rgba(255,255,255,.85));
+      background: linear-gradient(180deg, #ffffff, rgba(255,255,255,.86));
       border: 1px solid rgba(11,18,32,.08);
       border-radius: 28px;
       box-shadow: var(--shadow);
@@ -150,11 +149,12 @@
                   radial-gradient(circle at 65% 55%, rgba(212,175,55,.18), transparent 55%);
       filter: blur(2px);
     }
+
     .hero-inner{
       padding: 44px 36px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
       align-items: center;
       position:relative;
       z-index: 1;
@@ -179,7 +179,7 @@
 
     h1{
       margin: 14px 0 12px;
-      font-size: clamp(30px, 3.4vw, 46px);
+      font-size: clamp(30px, 3.4vw, 48px);
       line-height: 1.06;
       letter-spacing: -1px;
       color: var(--navy);
@@ -202,14 +202,49 @@
       color: rgba(82,96,109,.95);
     }
 
-    /* “What you get” panel */
+    /* Hero media (image + overlay cards) */
+    .hero-media{
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 420px;
+      border: 1px solid rgba(11,18,32,.10);
+      box-shadow: 0 18px 45px rgba(11,18,32,.14);
+      background: #e9edf3;
+    }
+    .hero-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      filter: saturate(1.03) contrast(1.02);
+    }
+    .hero-media:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(247,248,251,.92) 0%, rgba(247,248,251,.70) 42%, rgba(247,248,251,.00) 72%),
+        linear-gradient(180deg, rgba(11,37,64,.08) 0%, rgba(11,37,64,.00) 45%);
+    }
+
     .panel{
-      background: linear-gradient(180deg, rgba(11,37,64,.88), rgba(18,56,92,.88));
+      position:absolute;
+      right: 16px;
+      top: 16px;
+      bottom: 16px;
+      width: min(340px, 86%);
+      background: linear-gradient(180deg, rgba(11,37,64,.86), rgba(18,56,92,.86));
       color: #fff;
       border-radius: 22px;
-      padding: 18px;
+      padding: 16px;
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: 0 16px 36px rgba(11,37,64,.22);
+      display:flex;
+      flex-direction: column;
     }
     .panel h3{
       margin: 0 0 10px;
@@ -240,6 +275,14 @@
     .pill b{ display:block; margin-bottom: 2px; }
     .pill span{ font-size: 13px; color: rgba(255,255,255,.78); }
 
+    .panel-foot{
+      margin-top:auto;
+      font-size: 12px;
+      color: rgba(255,255,255,.75);
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 10px;
+    }
+
     /* Trust band */
     .trust{
       margin: 22px 0 8px;
@@ -268,9 +311,7 @@
 
     /* Sections */
     section{ padding: 34px 0; }
-    .head{
-      margin-bottom: 14px;
-    }
+    .head{ margin-bottom: 14px; }
     .head h2{
       margin: 0 0 6px;
       font-size: 22px;
@@ -422,6 +463,7 @@
       margin-top: 12px;
     }
     .qa b{ display:block; margin-bottom: 4px; }
+    .muted{ color: var(--muted); font-size: 13px; }
     .info{
       display:grid;
       gap: 10px;
@@ -459,6 +501,16 @@
 
     @media (max-width: 960px){
       .hero-inner{ grid-template-columns: 1fr; padding: 34px 20px; }
+      .hero-media{ min-height: 360px; }
+      .panel{
+        left: 16px;
+        right: 16px;
+        width: auto;
+        top: auto;
+        bottom: 16px;
+        max-height: 62%;
+        overflow: auto;
+      }
       .nav{ display:none; }
       .card{ grid-column: span 12; }
       .feature{ grid-template-columns: 1fr; }
@@ -519,33 +571,44 @@
             </div>
           </div>
 
-          <aside class="panel" aria-label="What you get">
-            <h3>What you get</h3>
+          <!-- HERO IMAGE + OVERLAY PANEL -->
+          <div class="hero-media" aria-label="Confident dentist team">
+            <!-- Put hero-dentist.png in the repo root (same folder as index.html) -->
+            <img src="hero-dentist.png" alt="Confident Georgia dentist team with insurance handled" />
 
-            <div class="pill">
-              <div class="ico">≋</div>
-              <div>
-                <b>Clean comparisons</b>
-                <span>We match coverage first, then recommend upgrades separately.</span>
-              </div>
-            </div>
+            <aside class="panel" aria-label="What you get">
+              <h3>What you get</h3>
 
-            <div class="pill">
-              <div class="ico">☂</div>
-              <div>
-                <b>Umbrella strategy</b>
-                <span>Higher exposure needs a smarter liability ceiling.</span>
+              <div class="pill">
+                <div class="ico">≋</div>
+                <div>
+                  <b>Clean comparisons</b>
+                  <span>We match coverage first, then recommend upgrades separately.</span>
+                </div>
               </div>
-            </div>
 
-            <div class="pill">
-              <div class="ico">⏱</div>
-              <div>
-                <b>Fast + organized</b>
-                <span>Simple intake, fewer follow-ups, cleaner bind process.</span>
+              <div class="pill">
+                <div class="ico">☂</div>
+                <div>
+                  <b>Umbrella strategy</b>
+                  <span>Higher exposure needs a smarter liability ceiling.</span>
+                </div>
               </div>
-            </div>
-          </aside>
+
+              <div class="pill">
+                <div class="ico">⏱</div>
+                <div>
+                  <b>Fast + organized</b>
+                  <span>Simple intake, fewer follow-ups, cleaner bind process.</span>
+                </div>
+              </div>
+
+              <div class="panel-foot">
+                Typical start: send your dec page + renewal date.
+              </div>
+            </aside>
+          </div>
+
         </div>
       </div>
     </section>
